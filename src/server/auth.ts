@@ -3,6 +3,7 @@ import {
   getServerSession,
   type DefaultSession,
   type NextAuthOptions,
+  User,
 } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -38,13 +39,32 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
-    }),
+    session: ({ session, user, token }) => {
+      console.log("Session Callback", { session, user, token });
+      if (user && user.id) {
+        return {
+          ...session,
+          user: {
+            ...session.user,
+            id: user.id,
+          },
+        };
+      } else {
+        console.error("User or user.id is undefined.");
+        return session;
+      }
+    },
+    jwt: ({ token, user }) => {
+      console.log("JWT Callback", { token, user });
+      if (user) {
+        const u = user as unknown as User;
+        return {
+          ...token,
+          id: u.id,
+        };
+      }
+      return token;
+    },
   },
   adapter: PrismaAdapter(db),
   providers: [
@@ -63,21 +83,19 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        // Add logic here to look up the user from the credentials supplied
-        const { username, password } = credentials as {
-          username: string;
-          password: string;
-        };
-
         const user = await db.user.findFirst({
-          where: { username, password },
+          where: {
+            username: credentials?.username,
+            password: credentials?.password,
+          },
         });
 
-        if (!user) {
-          return null;
+        if (user) {
+          console.log(user);
+          return { id: user.id, name: user.username, email: user.email };
         }
 
-        return { id: user.id, name: user.username, email: user.email };
+        return null;
       },
     }),
     /**
@@ -90,6 +108,8 @@ export const authOptions: NextAuthOptions = {
      * @see https://next-auth.js.org/providers/github
      */
   ],
+  session: { strategy: "jwt" },
+  debug: process.env.NODE_ENV === "development",
 };
 
 /**

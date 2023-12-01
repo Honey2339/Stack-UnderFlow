@@ -9,19 +9,22 @@ import {
   FcAddDatabase,
   FcPlus,
 } from "react-icons/fc";
-import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { api } from "~/trpc/react";
+import { useRouter } from "next/navigation";
 
 export default function page() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = (e: any) => {
+  const [email, setEmail] = useState("");
+
+  const result = api.signup.signup.useMutation();
+  const router = useRouter();
+  const handleSignup = async (e: any) => {
     e.preventDefault();
-    signIn("credentials", {
-      username,
-      password,
-    });
+    result.mutate({ email, username, password });
+    router.push("/pages/login");
   };
   const handleGithub = (e: any) => {
     e.preventDefault();
@@ -75,6 +78,9 @@ export default function page() {
             <Input
               className="rounded border-2 border-blue-400 px-2 py-2 "
               placeholder="Your Name"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <div className="flex flex-col">
               <h3 className="mb-2 font-bold">Password</h3>
@@ -93,7 +99,7 @@ export default function page() {
             </div>
             <Button
               className="rounded-lg bg-blue-400 text-lg font-medium text-white"
-              onClick={handleLogin}
+              onClick={handleSignup}
               variant="secondary"
             >
               SignIn

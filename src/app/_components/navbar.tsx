@@ -3,13 +3,14 @@ import stackpic from "./bluestack.png";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Input } from "@/shadui/ui/input";
 import { Button } from "@/shadui/ui/button";
-import { signIn, signOut } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
 import Link from "next/link";
-import { getServerAuthSession } from "~/server/auth";
+
 import SignOutBtn from "./signoutbtn";
+import { authOptions } from "~/server/auth";
 
 export default async function navbar() {
-  const session = await getServerAuthSession();
+  const session = await getServerSession(authOptions);
 
   return (
     <div className="flex h-[50px] max-h-[50px] items-center space-x-12 bg-white shadow-md">

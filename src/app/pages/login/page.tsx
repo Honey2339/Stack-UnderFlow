@@ -21,6 +21,7 @@ export default function page() {
     signIn("credentials", {
       username,
       password,
+      callbackUrl: "/",
     });
   };
   const handleGithub = (e: any) => {
