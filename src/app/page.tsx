@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useTransition, animated } from "react-spring";
 import PricingCards from "./_components/pricingcards";
 import Image from "next/image";
-import stackpic from "./bluestack.png";
+import stackpic from "./bluestack1.png";
 import Earth from "../../public/earth.svg";
 import Teams from "../../public/teams.svg";
 import RandomText from "./_components/randomtext";
@@ -67,7 +67,7 @@ export default function Home() {
             has a
           </div>
           <p className="mt-2 flex gap-3 text-5xl font-bold text-white">
-            tab open for Stack Outflow
+            tab open for Stack Underflow
           </p>
         </div>
         <div className="mb-16 mt-16 h-[7px] w-16 rounded-lg bg-gray-500"></div>
@@ -78,7 +78,7 @@ export default function Home() {
           <div className=" mt-10 flex flex-col items-center justify-center">
             <h3 className="flex items-center text-xl">
               <Image src={stackpic} width={50} alt="stackpic" />
-              stack<h3 className="font-bold">Outflow</h3>
+              stack<h3 className="font-bold">Underflow</h3>
             </h3>
             <Image className="mt-5" src={Earth} width={500} alt="earth" />
             <p className="mt-5 max-w-[380px] text-center text-xl font-medium">

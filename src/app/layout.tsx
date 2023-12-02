@@ -11,7 +11,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Stack Outflow",
+  title: "Stack Underflow",
   description: "t3-app",
   icons: [{ rel: "icon", url: "/bluestack.ico" }],
 };

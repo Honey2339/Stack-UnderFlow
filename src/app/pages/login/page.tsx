@@ -21,7 +21,7 @@ export default function page() {
     signIn("credentials", {
       username,
       password,
-      callbackUrl: "/",
+      callbackUrl: "/pages/content",
     });
   };
   const handleGithub = (e: any) => {
@@ -32,34 +32,6 @@ export default function page() {
   return (
     <main className="flex h-screen flex-col items-center justify-center bg-gray-200">
       <div className="flex space-x-10">
-        <div>
-          <h3 className="mb-4 mt-10 text-3xl font-bold">
-            Join the Community Today
-          </h3>
-          <p className="mb-10 text-gray-700">
-            Participate in discussions, ask questions, and connect with other
-            developers.
-          </p>
-          <div className="mb-5 flex items-center space-x-2">
-            <FcDecision size={30} />
-            <p>Get unstuck — ask a question</p>
-          </div>
-          <div className="mb-5 flex items-center space-x-2">
-            <FcAdvertising size={30} />
-            <p>Unlock new privileges like voting and commenting</p>
-          </div>
-          <div className="mb-5 flex items-center space-x-2">
-            <FcAddDatabase size={30} />
-            <p className="max-w-[400px]">
-              Save your favorite questions, answers, watch tags, and more
-            </p>
-          </div>
-          <div className="mb-5 flex items-center space-x-2">
-            <FcPlus size={30} />
-            <p className="max-w-[400px]">Earn reputation and badges</p>
-          </div>
-        </div>
-
         {/* Left Column */}
 
         <div className="rounded-lg bg-white p-5 py-8 shadow-md">

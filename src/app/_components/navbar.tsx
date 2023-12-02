@@ -22,7 +22,7 @@ export default async function navbar() {
         <div className="flex cursor-pointer items-center px-2 transition duration-0 hover:bg-slate-200">
           <Image className="px-0" src={stackpic} width={50} alt="bluestack" />
           <h2 className="flex text-xl">
-            stack<p className="pr-2 font-bold">outflow</p>
+            stack<p className="pr-2 font-bold">underflow</p>
           </h2>
         </div>
       </Link>
@@ -42,7 +42,7 @@ export default async function navbar() {
         placeholder="Search.."
       />
       {session ? (
-        <div className="flex items-center space-x-10">
+        <div className="flex items-center space-x-10 max-2xl:hidden">
           <p>Logged In As : {session.user.name}</p>
           <SignOutBtn />
         </div>

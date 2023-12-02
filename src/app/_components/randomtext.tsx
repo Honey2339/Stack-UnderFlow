@@ -6,7 +6,7 @@ export default function RandomText() {
           Literally No
         </p>
         <p className="mt-1 max-w-[200px] text-center text-[15px] text-gray-400">
-          monthly visitors to Stack OutFlow
+          monthly visitors to Stack UnderFlow
         </p>
       </div>
       <div className="flex flex-col">
@@ -14,7 +14,7 @@ export default function RandomText() {
           Alot alot of
         </p>
         <p className="mt-1 max-w-[200px] text-center text-[15px] text-gray-400">
-          Times a developer got help thru Stack Outflow
+          Times a developer got help thru Stack Underflow
         </p>
       </div>
       <div className="flex flex-col">
@@ -22,7 +22,7 @@ export default function RandomText() {
           More than 20+
         </p>
         <p className="mt-1 max-w-[200px] text-center text-[15px] text-gray-400">
-          registered accounted on Stack Outflow
+          registered accounted on Stack Underflow
         </p>
       </div>
     </div>

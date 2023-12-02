@@ -7,36 +7,42 @@ import {
 } from "~/server/api/trpc";
 
 export const postRouter = createTRPCRouter({
-  hello: publicProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
-
-  create: protectedProcedure
-    .input(z.object({ name: z.string().min(1) }))
+  CreatePost: protectedProcedure
+    .input(
+      z.object({
+        title: z.string().min(10),
+        description: z.string().min(20),
+      }),
+    )
     .mutation(async ({ ctx, input }) => {
-      // simulate a slow db call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      return ctx.db.post.create({
+      const title = input.title;
+      const description = input.description;
+      const userEmail = ctx.session.user.email;
+      if (!userEmail) return console.log("User email is not avaliable");
+      console.log(title, description);
+      const createPost = await ctx.db.post.create({
         data: {
-          name: input.name,
-          createdBy: { connect: { id: ctx.session.user.id } },
+          question: title,
+          description: description,
+          votes: 0,
+          views: 0,
+          answers: 0,
+          createdBy: { connect: { email: userEmail } },
         },
       });
     }),
-
-  getLatest: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.post.findFirst({
-      orderBy: { createdAt: "desc" },
-      where: { createdBy: { id: ctx.session.user.id } },
+  showQuestions: protectedProcedure.query(async ({ ctx, input }) => {
+    const questions = ctx.db.post.findMany({
+      include: {
+        createdBy: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
     });
-  }),
 
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
+    return questions;
   }),
 });
