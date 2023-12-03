@@ -66,6 +66,10 @@
   }
 }
 
+h3 a {
+  color: blue;
+}
+
 @layer base {
   * {
     @apply border-border;

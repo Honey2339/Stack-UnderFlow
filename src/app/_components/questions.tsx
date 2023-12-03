@@ -1,3 +1,4 @@
+import Link from "next/navigation";
 import { api } from "~/trpc/react";
 
 export default function Questions() {
@@ -30,7 +31,7 @@ export default function Questions() {
               </div>
             </div>
             <h3 className="mt-2 max-w-lg text-blue-500 transition duration-0 hover:cursor-pointer hover:text-blue-700">
-              {question.question}
+              <a href={`/pages/content/${question.id}`}>{question.question}</a>
               <h3 className="min-w-[550px] text-right text-black">
                 Asked By : {question.createdBy.name}
               </h3>

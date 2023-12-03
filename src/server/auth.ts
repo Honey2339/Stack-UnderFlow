@@ -40,7 +40,6 @@ declare module "next-auth" {
 export const authOptions: NextAuthOptions = {
   callbacks: {
     session: ({ session, user, token }) => {
-      console.log("Session Callback", { session, user, token });
       if (user && user.id) {
         return {
           ...session,
@@ -55,7 +54,6 @@ export const authOptions: NextAuthOptions = {
       }
     },
     jwt: ({ token, user }) => {
-      console.log("JWT Callback", { token, user });
       if (user) {
         const u = user as unknown as User;
         return {

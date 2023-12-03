@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide-react": "^0.294.0",
+    "marked": "^11.0.0",
     "next": "^13.5.4",
     "next-auth": "^4.24.5",
     "react": "18.2.0",

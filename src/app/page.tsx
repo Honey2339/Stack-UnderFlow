@@ -10,12 +10,17 @@ import Earth from "../../public/earth.svg";
 import Teams from "../../public/teams.svg";
 import RandomText from "./_components/randomtext";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const textSet = ["Developer", "Programmer", "Learner", "Coder"];
 
 export default function Home() {
   const { data: session, status } = useSession();
   console.log(session);
+  const router = useRouter();
+  if (session?.user.name) {
+    router.push("/pages/content");
+  }
 
   const [index, setIndex] = useState(0);
 

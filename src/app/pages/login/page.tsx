@@ -26,7 +26,7 @@ export default function page() {
   };
   const handleGithub = (e: any) => {
     e.preventDefault();
-    signIn("github");
+    signIn("github", { callbackUrl: "/pages/content" });
   };
 
   return (

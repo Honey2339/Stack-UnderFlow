@@ -45,4 +45,21 @@ export const postRouter = createTRPCRouter({
 
     return questions;
   }),
+  getQuestionById: protectedProcedure
+    .input(z.object({ id: z.number() }))
+    .query(async ({ ctx, input }) => {
+      const question = await ctx.db.post.findUnique({
+        where: { id: input.id },
+        include: {
+          createdBy: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      });
+
+      return question;
+    }),
 });
