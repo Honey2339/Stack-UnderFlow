@@ -15,7 +15,7 @@ export default async function navbar() {
   return (
     <div className="flex h-[50px] max-h-[50px] items-center space-x-12 bg-white shadow-md">
       <RxHamburgerMenu
-        className="ml-40 cursor-pointer px-4 transition duration-0 hover:bg-slate-200"
+        className="ml-40 cursor-pointer px-4 transition duration-0 hover:bg-slate-200 max-2xl:ml-10"
         size={50}
       />
       <Link href="/">
@@ -38,11 +38,11 @@ export default async function navbar() {
         </p>
       </div>
       <Input
-        className="w-[500px] rounded border-2 border-gray-400"
+        className="w-[500px] rounded border-2 border-gray-400 max-2xl:w-[200px]"
         placeholder="Search.."
       />
       {session ? (
-        <div className="flex items-center space-x-10 max-2xl:hidden">
+        <div className="flex items-center space-x-10 ">
           <p>Logged In As : {session.user.name}</p>
           <SignOutBtn />
         </div>
