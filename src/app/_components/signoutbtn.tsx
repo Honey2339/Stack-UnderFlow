@@ -7,7 +7,9 @@ export default function SignOutBtn() {
   return (
     <Button
       onClick={() => {
-        signOut({ callbackUrl: "/" });
+        void signOut({ callbackUrl: "/" }).catch((err) => {
+          console.log(err);
+        });
       }}
       variant="secondary"
       className="rounded-lg border-[0.5px] border-blue-700 text-blue-600 transition duration-0 hover:bg-blue-100"

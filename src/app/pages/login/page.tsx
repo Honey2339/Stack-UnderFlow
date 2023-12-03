@@ -2,31 +2,28 @@
 import { Button } from "@/shadui/ui/button";
 import { Input } from "@/shadui/ui/input";
 import Image from "next/image";
-import GithubPic from "./github.svg";
-import {
-  FcDecision,
-  FcAdvertising,
-  FcAddDatabase,
-  FcPlus,
-} from "react-icons/fc";
-import Link from "next/link";
+import GithubPic from "./github.png";
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
-export default function page() {
+export default function LoginIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleLogin = (e: any) => {
+  const handleLogin = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     signIn("credentials", {
       username,
       password,
       callbackUrl: "/pages/content",
+    }).catch((err) => {
+      console.log(err);
     });
   };
-  const handleGithub = (e: any) => {
+  const handleGithub = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    signIn("github", { callbackUrl: "/pages/content" });
+    signIn("github", { callbackUrl: "/pages/content" }).catch((err) => {
+      console.log(err);
+    });
   };
 
   return (

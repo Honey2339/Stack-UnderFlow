@@ -13,7 +13,7 @@ export default function Questions() {
   return (
     <div>
       {result.data?.map((question) => (
-        <div>
+        <div key={question.id}>
           <div className="ml-5 h-[0.5px] w-auto bg-gray-400"></div>
           <div className="mb-4 mt-3 flex items-center space-x-2 px-16">
             <div className="text-right">

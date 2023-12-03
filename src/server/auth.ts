@@ -39,8 +39,8 @@ declare module "next-auth" {
  */
 export const authOptions: NextAuthOptions = {
   callbacks: {
-    session: ({ session, user, token }) => {
-      if (user && user.id) {
+    session: ({ session, user }) => {
+      if (user?.id) {
         return {
           ...session,
           user: {
@@ -49,7 +49,6 @@ export const authOptions: NextAuthOptions = {
           },
         };
       } else {
-        console.error("User or user.id is undefined.");
         return session;
       }
     },
@@ -80,7 +79,7 @@ export const authOptions: NextAuthOptions = {
         },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const user = await db.user.findFirst({
           where: {
             username: credentials?.username,

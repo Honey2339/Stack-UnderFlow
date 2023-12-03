@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import Navbar from "./_components/navbar";
 import Provider from "./context/provider";
 import { TRPCReactProvider } from "~/trpc/react";
+import { type Session } from "next-auth";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
   session,
 }: {
   children: React.ReactNode;
-  session: any;
+  session: Session;
 }) {
   return (
     <html lang="en">

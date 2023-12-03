@@ -6,8 +6,8 @@ import { useTransition, animated } from "react-spring";
 import PricingCards from "./_components/pricingcards";
 import Image from "next/image";
 import stackpic from "./bluestack1.png";
-import Earth from "../../public/earth.svg";
-import Teams from "../../public/teams.svg";
+import Earth from "../../public/earth.png";
+import Teams from "../../public/teams.png";
 import RandomText from "./_components/randomtext";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -66,7 +66,7 @@ export default function Home() {
             Every
             {transitions((style, item) => (
               <animated.p style={style}>
-                <span className="text-[#E6700C]">"{item}"</span>
+                <span className="text-[#E6700C]">{item}</span>
               </animated.p>
             ))}
             has a

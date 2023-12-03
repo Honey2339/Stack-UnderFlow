@@ -14,7 +14,7 @@ export default function CreatePost() {
   const result = api.post.CreatePost.useMutation();
   const router = useRouter();
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setTitle("");
     setDescription("");

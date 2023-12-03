@@ -4,7 +4,6 @@ import { useParams } from "next/navigation";
 import Sidebar from "~/app/_components/sidebar";
 import { api } from "~/trpc/react";
 import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
-import { Input } from "@/shadui/ui/input";
 import { Textarea } from "@/shadui/ui/textarea";
 import { Button } from "@/shadui/ui/button";
 import { useState } from "react";
@@ -28,7 +27,9 @@ const QuestionDetail = () => {
       { id },
       {
         onSuccess: () => {
-          result.refetch();
+          result.refetch().catch((err) => {
+            console.log(err);
+          });
         },
       },
     );
@@ -38,7 +39,9 @@ const QuestionDetail = () => {
       { id },
       {
         onSuccess: () => {
-          result.refetch();
+          result.refetch().catch((err) => {
+            console.log(err);
+          });
         },
       },
     );
@@ -87,7 +90,7 @@ const QuestionDetail = () => {
             <div className="ml-5 mt-8 h-[0.5px] w-[700px] bg-gray-400"></div>
             <h3 className="ml-6 mt-5 text-xl font-bold">All Answers</h3>
             {allAnswer.data?.map((answers) => (
-              <div className="flex flex-col">
+              <div key={answers.id} className="flex flex-col">
                 <h3
                   className="ml-10 mt-10 max-w-xl whitespace-pre-line"
                   dangerouslySetInnerHTML={{ __html: marked(answers.content) }}

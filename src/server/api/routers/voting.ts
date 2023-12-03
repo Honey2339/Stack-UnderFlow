@@ -1,11 +1,6 @@
 import { z } from "zod";
 
-import {
-  createTRPCRouter,
-  protectedProcedure,
-  publicProcedure,
-} from "~/server/api/trpc";
-import { api } from "~/trpc/server";
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 
 export const votingRouter = createTRPCRouter({
   increaseVote: protectedProcedure
