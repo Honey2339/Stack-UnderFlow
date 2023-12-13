@@ -109,7 +109,7 @@ const QuestionDetail = () => {
           <Textarea
             value={answer}
             className="mt-5 h-[100px] resize-none border-2 border-gray-400"
-            placeholder="......"
+            placeholder="Write your answer here..."
             onChange={(e) => setAnswer(e.target.value)}
           />
           <Button
