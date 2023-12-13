@@ -30,3 +30,9 @@ to run Stack Underflow locally follow these steps -
    5.Run database migrations using ```npx prisma migrate dev```.
    
    6.Run the development server using ```npm run dev```.
+
+## Contributors
+
+<a href="https://github.com/Honey2339/Stack-UnderFlow/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Honey2339/Stack-UnderFlow" />
+</a>
