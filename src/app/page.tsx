@@ -41,7 +41,7 @@ export default function Home() {
     <section className="mt-10 flex flex-col items-center">
       <div className="flex h-[900px] w-[1800px] flex-col items-center rounded-xl bg-[#202227] p-4">
         <div className="mt-10 flex space-x-20">
-          <div className="flex h-auto w-[400px] flex-col items-center space-y-5 rounded-lg bg-[#FBDAC0] px-10 py-10">
+            <div className="flex h-auto w-[400px] flex-col items-center space-y-5 rounded-lg bg-[#FBDAC0] px-10 py-10">
             <FcLike size={60} />
             <p className="text-center text-[19px] ">
               Find the best answer to your technical question, help others
@@ -83,7 +83,7 @@ export default function Home() {
           <div className=" mt-10 flex flex-col items-center justify-center">
             <h3 className="flex items-center text-xl">
               <Image src={stackpic} width={50} alt="stackpic" />
-              stack<h3 className="font-bold">Underflow</h3>
+              stack<span className="font-bold">Underflow</span>
             </h3>
             <Image className="mt-5" src={Earth} width={500} alt="earth" />
             <p className="mt-5 max-w-[380px] text-center text-xl font-medium">
