@@ -1,4 +1,6 @@
 import Link from "next/navigation";
+import LoadingIcons from "react-loading-icons";
+import Bars from "react-loading-icons/dist/esm/components/bars";
 import { api } from "~/trpc/react";
 
 export default function Questions() {
@@ -8,7 +10,11 @@ export default function Questions() {
   }
 
   if (result.isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center h-12 items-center">
+    <LoadingIcons.BallTriangle stroke="blue" />
+      </div>
+      )
   }
   return (
     <div>
