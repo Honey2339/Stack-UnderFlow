@@ -23,8 +23,16 @@ export default function SignIn() {
   const router = useRouter();
   const handleSignup = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    result.mutate({ email, username, password });
-    router.push("/pages/login");
+    if (password.length > 10) {
+      result.mutate({ email, username, password });
+      router.push("/pages/login");
+    } else {
+      return (
+        <h1>
+          password must contain number and atleast should have 10 character
+        </h1>
+      );
+    }
   };
   const handleGithub = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -36,7 +44,7 @@ export default function SignIn() {
   return (
     <main className="flex h-screen flex-col items-center justify-center bg-gray-200">
       <div className="flex space-x-10">
-        <div>
+        <div className="max-xl:hidden">
           <h3 className="mb-4 mt-10 text-3xl font-bold">
             Join the Community Today
           </h3>
