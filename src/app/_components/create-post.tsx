@@ -52,6 +52,7 @@ export default function CreatePost() {
               setDescription(e.target.value);
             }}
             value={description}
+            placeholder="eg: write your perspective, about the question you asked."
           />
         </div>
         <Button className="mt-2 bg-blue-400 text-white" onClick={handleSubmit}>

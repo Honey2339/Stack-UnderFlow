@@ -1,28 +1,38 @@
-# Create T3 App
+# Stack UnderFlow
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Technologies Used
 
-## What's next? How do I make an app with this?
+- **Next.js:** React framework for building web applications.
+- **tRPC:** TypeScript-based RPC (Remote Procedure Call) framework.
+- **Tailwind CSS:** Utility-first CSS framework for styling.
+- **PostgreSQL (Prisma ORM):** Database management using the Prisma ORM with PostgreSQL.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- User authentication with login and signup functionality.
+- Creation of questions and answers.
+- Planned features include the integration of Stripe for enhanced functionality.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Contribute
 
-## Learn More
+to run Stack Underflow locally follow these steps -
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+   1. Clone the repository ```git clone https://github.com/Honey2339/Stack-OutFlow-tRPC.git```
+   
+   2. Install the dependencies ```npm install```
+      
+   3. Rename the ```.env.example``` to ```.env```
+      
+   4. Now change the following and replace with your own values:
+      
+         Replace ```DATABASE_URL``` value from ```https://supabase.com/``` initialize a DB and copy the DB url and replace the existing env url
+      
+   5.Run database migrations using ```npx prisma migrate dev```.
+   
+   6.Run the development server using ```npm run dev```.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Contributors
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+<a href="https://github.com/Honey2339/Stack-UnderFlow/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Honey2339/Stack-UnderFlow" />
+</a>
